@@ -6,7 +6,6 @@
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
-  * [Process](#process)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
 * [Usage](#usage)
@@ -52,35 +51,27 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-In this project I experimented a bit with different neural network architectures and saw how good each of the architectures were performing on MNIST dataset. 
+In this project I experimented a bit with different neural network architectures and saw how good each of the architectures were performing on MNIST dataset. Along with that I created a basic GUI application to take input from user and display the predicted number.  
+Different Architectures:- 
 - ### Perceptron
+![perceptron](assets/perceptron.png)  
+
 I tried with a perceptron first but as you know the results were not very good. The accuracy was low and even with the data from MNIST it was not giving accurate results. 
+
 - ### FeedForward
-Next I tried a feed forward neural network with one hidden layer. The results were good i.e I got an accuracy of 80% within the first few epochs. When I tested it on the MNIST test set I got around 82% accuracy which is pretty good. There is one problem. The FeedForward neural networks do not take the shape into consideration. They just see the pixel intensities at locations and produces an output. Now assume a senario where 3 was written in such a way that it is covering all the activated parts for 8, then the model can be fooled easily.
+![perceptron](assets/feedforward.png)   
+
+Next I tried a feed forward neural network with one hidden layer. The results were better than before i.e I got an accuracy of 80% within the first few epochs. When I tested it on the MNIST test set I got around 82% accuracy which is pretty good. There is one problem. The FeedForward neural networks do not take the shape into consideration. They just see the pixel intensities at locations and produces an output. Now assume a senario where 3 was written in such a way that it is covering all the activated parts for 8, then the model can be fooled easily.
+
 - ### CNN
-That is why when I tried to input a custom image that i made with a black background gave me wierd predictions. Then I implemented a CNN architecture and still got ~83% accuracy within a few epochs. Now when I tried it on custom that I made I got good results. 
+![perceptron](assets/CNN.png)  
 
-
-<p>
-<a href="https://github.com/SRA-VJTI/practice-assignments/blob/master/Data-Relay/data-relay.md">Data Relay by SRA-VJTI</a>
-</p>
-
-This project focusses on the MQTT, Multithreading, Compression Algo and File I/O in C and C++
-
-<!-- PROCESS -->
-## Process
-<br />
-<p align="center">
-  <img src="images/detarelayprocess.png" alt="output" width="720" height="720">
-</p>
-<br />
+Then I implemented a CNN architecture and still got a ~83% accuracy within a few epochs. Now when I tried it on custom that I made I got good results. The reason for this is that CNN takes into consideration the shapes i.e it doesnot just take the intensities into consideration, it also extracts features and gives results based on them. The convolutional layers create feature maps that record a region of image which is ultimately broken into rectangles and sent out for nonlinear processing. The only problem with CNN is that they need a lot of data to get trained but here as MNIST dataset has a lot of images we have no issues.
 
 ### Built With
 
-* [Mosquitto](https://mosquitto.org/)
-* [C++](https://en.wikipedia.org/wiki/C%2B%2B)
-* [C](https://en.wikipedia.org/wiki/C_(programming_language))
-
+* [PyTorch](https://pytorch.org/)
+* [PyQT5](https://pypi.org/project/PyQt5/)
 
 
 <!-- GETTING STARTED -->
@@ -89,101 +80,42 @@ This project focusses on the MQTT, Multithreading, Compression Algo and File I/O
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
+I strongly recommend the use of miniconda to create virtual environments
 
-This is an example of how to list things you need to use the software and how to install them.
-
-* mosquitto libs for ubuntu
-
-```sh
-sudo apt search mosquitto
-sudo apt-add-repository ppa:mosquitto-dev/mosquitto-ppa
-sudo apt-get update
-```
-
-* Now install libmosquittopp1 for C++(optional) and libmosquitto-dev for C 
+Install the following python modules:-
+ - [PyTorch](https://pytorch.org/)
+ - [OpenCV](https://pypi.org/project/opencv-python/4.2.0.34/)
+ - [PyQT5](https://pypi.org/project/PyQt5/)
+ 
+Thats it :smile:
 
 ### Usage
 
+1st activate your environment. Then follow the given steps.
+
 ```sh
-cd src/
-gcc sub_final.c -o sub_final -lmosquitto -ljson-c
-gcc pub_final.c -o pub_final -lmosquitto -ljson-c -lpthread
-g++ cpp_compression.cpp
+git clone https://github.com/SravanChittupalli/DigitClassifier-App-using-PyTorch.git
+cd DigitClassifier-App-using-PyTorch/app
+python CNNClassifierApp.py
+
 ```
-
-* To run subscriber use `./sub_final` and for publisher use `./pub_final` 
-Note: Run subscriber before publisher
-
-* To compress the redundant data use `./a.out`
+Now you can find a GUI app on your screen. Play with it and let me know if there are any problems by creating an issue
 
 <!-- OUTPUT -->
 ## Output
+[Video1](https://youtu.be/L_p24OEvZNM) [Video2](https://youtu.be/zi88aBamRfg)
+
 <br />
 <p align="center">
-  <img src="images/opt.png" alt="output" width="720" height="480">
+  <img src="assets/output2.png" alt="Output2" width="720" height="480">
   <p align="center">
-  Now it also shows compression ratio and space savings calculated according to <a href="https://en.wikipedia.org/wiki/Data_compression_ratio">Wikipedia</a>
   <br />
-  <img src="images/compressionopt.png" alt="Compression Ratio" width="720" height="256">
+  <img src="assets/output1.png" alt="Output1" width="720" height="480">
   </p>
 </p>
 <br />
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/SAtacker/data-relay/issues) for a list of proposed features (and known issues).
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes        (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch         (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - shreyasatre16@gmail.com
-
-Project Link: [https://github.com/SAtacker/data-relay](https://github.com/SAtacker/data-relay)
-
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-* [Saharsh Jain](https://github.com/saharshleo)
-* [SRA-VJTI](https://github.com/SRA-VJTI)
-
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/SAtacker/data-relay.svg?style=flat-square
-[contributors-url]: https://github.com/SAtacker/data-relay/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/SAtacker/data-relay.svg?style=flat-square
-[forks-url]: https://github.com/SAtacker/data-relay/network/members
-[stars-shield]: https://img.shields.io/github/stars/SAtacker/data-relay.svg?style=flat-square
-[stars-url]: https://github.com/SAtacker/data-relay/stargazers
-[issues-shield]: https://img.shields.io/github/issues/SAtacker/data-relay.svg?style=flat-square
-[issues-url]: https://github.com/SAtacker/data-relay/issues
-[license-shield]: https://img.shields.io/github/license/SAtacker/data-relay.svg?style=flat-square
-[license-url]: https://github.com/SAtacker/data-relay/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/atreshreyas
-[product-screenshot]: images/screenshot.png
