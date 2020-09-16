@@ -10,33 +10,29 @@
   * [Prerequisites](#prerequisites)
 * [Usage](#usage)
 * [Output](#output)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
 * [License](#license)
-* [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
 
 ```
 ├── app                                                                                 // For future implementation in 
 │   ├── Models
 │   │    ├── __init__.py
-│   │    ├── FeedForward.py
-│   │    ├── Perceptron.py
-│   │    └── CNN.py
+│   │    ├── FeedForward.py                                                             // FeedForward model in PyTorch
+│   │    ├── Perceptron.py                                                              // Perceptron model in pytorch
+│   │    └── CNN.py                                                                     // CNN model in PyTorch
 │   ├── train
-│   │   ├── train_CNN.ipynb 
-│   │   └── train_feedforward.ipynb
+│   │   ├── train_CNN.ipynb                                                             // Training notebook for CNN
+│   │   └── train_feedforward.ipynb                                                     // Training notebook for FeedForward network
 │   ├── savedModels
-│   │   ├── MNIST_CNN.pth
-│   │   ├── MNIST_FeedForward.pth
-│   │   └── MNIST_Perceptron.pth
+│   │   ├── MNIST_CNN.pth                                                               // Trained CNN weights
+│   │   ├── MNIST_FeedForward.pth                                                       // Trained FeedForward network weights
+│   │   └── MNIST_Perceptron.pth                                                        // Trained perceptron weights
 │   ├── utils
 │   │   ├── __init__.py
 │   │   └── camera.py 
-│   ├── CNNClassifierApp.py
-│   └── FeedforwardClassifierApp.py 
+│   ├── CNNClassifierApp.py                                                             // GUI app code which loads CNN automatically
+│   └── FeedforwardClassifierApp.py                                                     // GUI app code which loads FeedForward network automatically
 ├── LICENSE                                                                             // License
-├── assets                                                                              // Testing mqtt mosquitto lib
+├── assets                                                                              
 │   ├── out_vid1.mkv
 │   ├── out_vid2.mkv
 │   ├── output1.png 
